@@ -57,7 +57,7 @@ For detailed update logs, refer to [Details of version updates](update.md). You 
 - FastExcel will continue to update, fix bugs, optimize performance, and add new features.
 ## How to Upgrade from EasyExcel to FastExcel
 
-### 1. Modify Dependencies
+### 1. Update Dependencies
 Replace the EasyExcel dependency with the FastExcel dependency, as follows:
 
 ```xml
@@ -76,7 +76,7 @@ Replace with:
     <version>1.1.0</version>
 </dependency>
 ```
-### 2. Modify Code
+### 2. Update Code
 Replace the EasyExcel package name with the FastExcel package name, as follows:
 ```java
 // Replace EasyExcel package name with FastExcel package name
@@ -89,7 +89,7 @@ Replace with:
 import cn.idev.excel.** ;
 ```
 
-### 3. Depend on FastExcel Without Modifying Code
+### 3. Import FastExcel Without Modifying Code
 If you do not want to modify the code for various reasons, you can directly depend on FastExcel by directly adding the dependency in the pom.xml file. EasyExcel and FastExcel can coexist, but long-term switching to FastExcel is recommended.
 
 ### 4. Future Use of FastExcel Classes Recommended
