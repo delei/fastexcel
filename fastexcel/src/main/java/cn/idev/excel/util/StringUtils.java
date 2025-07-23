@@ -20,7 +20,8 @@
 package cn.idev.excel.util;
 
 public class StringUtils {
-    private StringUtils() {}
+    private StringUtils() {
+    }
 
     /**
      * A String for a space character.
@@ -246,5 +247,51 @@ public class StringUtils {
             }
         }
         return true;
+    }
+
+    /**
+     * Trim leading and trailing whitespace from the given {@code String}.
+     *
+     * @param str the {@code String} to check
+     * @return the trimmed {@code String}
+     * @see java.lang.Character#isWhitespace
+     */
+    public static String trimWhitespace(final String str) {
+        if (!isBlank(str)) {
+            return str;
+        }
+
+        int beginIndex = 0;
+        int endIndex = str.length() - 1;
+
+        while (beginIndex <= endIndex && isBlankChar(str.charAt(beginIndex))) {
+            beginIndex++;
+        }
+
+        while (endIndex > beginIndex && isBlankChar(str.charAt(endIndex))) {
+            endIndex--;
+        }
+
+        return str.substring(beginIndex, endIndex + 1);
+    }
+
+    /**
+     * Checks if the CharSequence is whitespace
+     *
+     * @param ch the CharSequence to check
+     * @return {@code true} if the character is a Java whitespace
+     * character; {@code false} otherwise.
+     * @see java.lang.Character#isWhitespace(char)
+     * @see java.lang.Character#isSpaceChar(char)
+     */
+    public static boolean isBlankChar(char ch) {
+        return Character.isWhitespace(ch)
+                || Character.isSpaceChar(ch)
+                || ch == '\ufeff'
+                || ch == '\u202a'
+                || ch == '\u0000'
+                || ch == '\u3164'
+                || ch == '\u2800'
+                || ch == '\u180e';
     }
 }
